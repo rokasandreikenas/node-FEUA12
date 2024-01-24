@@ -9,4 +9,8 @@ git clone "repozitorijos_link" - pvz.: git clone https://github.com/rokasandreik
 git add \* arba git add . - prideda failus į git lokalią sistemą <br/>
 git commit -m "komentaras" - pakeitimų komentaras. Turi atspindėti kas buvo pakeista, pridėta, išimta ir t.t. t.y. kas pasikeis, kai pridėsim pridėtus failus <br/>
 git push - išstumiam lokalius pakeitimus į GitHub sistemą <br/>
-git pull - ištraukia pakeitimus iš GitHub sistemos į lokalią sistemą
+git pull - ištraukia pakeitimus iš GitHub sistemos į lokalią sistemą <br/>
+
+node index.js - paleidžia Javascript failą <br/>
+.gitignore - failas kuriame aprašome git ignoruojamus failus <br/>
+npm install - surašo modulius (dependencies) iš package.json failo <br/>
