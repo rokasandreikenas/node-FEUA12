@@ -14,3 +14,5 @@ git pull - ištraukia pakeitimus iš GitHub sistemos į lokalią sistemą <br/>
 node index.js - paleidžia Javascript failą <br/>
 .gitignore - failas kuriame aprašome git ignoruojamus failus <br/>
 npm install - surašo modulius (dependencies) iš package.json failo <br/>
+npm start - paleidžia aplikaciją (nepamirštam įdėti į package.json scripts skiltį "start": "node index.js")
+nodemon - modulis tikrininantis pasikeitimus ir atnaujinantis serverį (npm install nodemon ir npm run dev)
