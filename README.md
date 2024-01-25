@@ -16,3 +16,7 @@ node index.js - paleidžia Javascript failą <br/>
 npm install - surašo modulius (dependencies) iš package.json failo <br/>
 npm start - paleidžia aplikaciją (nepamirštam įdėti į package.json scripts skiltį "start": "node index.js")
 nodemon - modulis tikrininantis pasikeitimus ir atnaujinantis serverį (npm install nodemon ir npm run dev)
+:firstLetter - pavyzdys dinaminio route. Jį galima ištraukti iš req.params pvz const { firstLetter } = req.params;
+
+// 1 == "1" lygu
+// 1 === "1" nelygu
