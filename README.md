@@ -1,5 +1,7 @@
 # Node.js introduction
 
+module.exports = data; - exportas node.js sistemoje <br/>
+
 dir - atvaizduoja visus folderio failus (cmd Windows) <br/>
 ls - atvaizduoja visus folderio failus (powershell, git bash, terminal) <br/>
 cd - pereina į kitą folderį pvz.: cd Desktop <br/>
@@ -14,9 +16,9 @@ git pull - ištraukia pakeitimus iš GitHub sistemos į lokalią sistemą <br/>
 node index.js - paleidžia Javascript failą <br/>
 .gitignore - failas kuriame aprašome git ignoruojamus failus <br/>
 npm install - surašo modulius (dependencies) iš package.json failo <br/>
-npm start - paleidžia aplikaciją (nepamirštam įdėti į package.json scripts skiltį "start": "node index.js")
-nodemon - modulis tikrininantis pasikeitimus ir atnaujinantis serverį (npm install nodemon ir npm run dev)
-:firstLetter - pavyzdys dinaminio route. Jį galima ištraukti iš req.params pvz const { firstLetter } = req.params;
+npm start - paleidžia aplikaciją (nepamirštam įdėti į package.json scripts skiltį "start": "node index.js")<br/>
+nodemon - modulis tikrininantis pasikeitimus ir atnaujinantis serverį (npm install nodemon ir npm run dev)<br/>
+:firstLetter - pavyzdys dinaminio route. Jį galima ištraukti iš req.params pvz const { firstLetter } = req.params;<br/>
 
-// 1 == "1" lygu
-// 1 === "1" nelygu
+// 1 == "1" lygu<br/>
+// 1 === "1" nelygu<br/>
