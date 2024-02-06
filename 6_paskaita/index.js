@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 8080;
-const URI = 'mongodb+srv://admin:admin@cluster0.gykitzd.mongodb.net/?retryWrites=true&w=majority';
+const URI = process.env.DB_CONNECTION_STRING;
 
 const client = new MongoClient(URI);
 
@@ -46,7 +46,7 @@ app.post('/', async (req, res) => {
   }
 });
 
-// .countDocuments()
+// .countDocuments() - grazina kieki kiek yra elementu DB
 app.get('/count', async (req, res) => {
   try {
     const con = await client.connect();
@@ -58,7 +58,7 @@ app.get('/count', async (req, res) => {
   }
 });
 
-// .findOne({ _id: new ObjectId(id) });
+// .findOne({ _id: new ObjectId(id) }); - randa viena pagal kriteriju pvz. _id
 app.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
