@@ -51,6 +51,7 @@ app.post('/pets', async (req, res) => {
   }
 });
 
+// TODO aggregate
 app.get('/people', async (req, res) => {
   try {
     const con = await client.connect();
