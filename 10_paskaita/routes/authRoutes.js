@@ -23,13 +23,13 @@ router.post('/register', async (req, res) => {
     }
 
     const saltRounds = 10;
-    bcrypt.hash(newUser.password, saltRounds, async (err, hash) => {
-      // Store hash in your password DB.
-      newUser.password = hash;
-      const data = await con.db('demo1').collection('users').insertOne(newUser);
-      await con.close();
-      return res.send(data);
-    });
+    const hashedPassword = await bcrypt.hash(newUser.password, saltRounds);
+    const data = await con
+      .db('demo1')
+      .collection('users')
+      .insertOne({ ...newUser, password: hashedPassword });
+    await con.close();
+    return res.send(data);
   } catch (error) {
     return res.status(500).send({ error });
   }
