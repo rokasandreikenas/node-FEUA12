@@ -25,6 +25,7 @@ const port = process.env.PORT || 8080;
 
 app.use('/auth', authRoutes);
 app.use('/pets', petRoutes);
+// app.use('/pets', verifyToken, petRoutes); if you want to verify every call
 
 app.listen(port, () => {
   console.log(`Server is running on ${port} port`);
