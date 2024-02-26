@@ -1,6 +1,8 @@
 const express = require('express');
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 require('dotenv').config();
 
 const router = express.Router();
@@ -37,13 +39,27 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const newPet = { ...req.body, ownerId: new ObjectId(`${req.body.ownerId}`) };
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).send({ error: 'Email and password are required fields' });
+    }
     const con = await client.connect();
-    const dbRes = await con.db('demo1').collection('coolPets').insertOne(newPet);
+    const user = await con.db('demo1').collection('users').findOne({ email });
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      return res.status(400).send({ error: 'Email or password is incorrect' });
+    }
+
+    const { _id } = user;
+    const token = jwt.sign({ userId: _id }, 'privateKey');
+
     await con.close();
-    res.send(dbRes);
+    delete user.password;
+    return res.send({ token, user });
   } catch (err) {
-    res.status(500).send({ err });
+    return res.status(500).send({ err });
   }
 });
 

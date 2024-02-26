@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
+const petRoutes = require('./routes/petRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -23,6 +24,7 @@ const port = process.env.PORT || 8080;
 // 3.1 Token is placed in API headers as Bearer token so backend can verify that caller is authenticated
 
 app.use('/auth', authRoutes);
+app.use('/pets', petRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port} port`);
